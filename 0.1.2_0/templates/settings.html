@@ -1,0 +1,156 @@
+<div class="widgets settings fadein fadein-slow" ng-controller="SettingsCtrl as sc" ng-enter="sc.submitData()">
+    <nav class="navbar navbar-inverse navbar-static-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="http://smilemorning.herokuapp.com/?rel=chromeapp">Smile Moment</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li ng-class="{'active': sc.selectedTabsValue === 'account'}"><a ng-click="sc.selectTab('account')" >Account <span class="sr-only">(current)</span></a></li>
+                    <li ng-class="{'active': sc.selectedTabsValue === 'modules'}"><a ng-click="sc.selectTab('modules')" >Modules</a></li>
+                    <li ng-class="{'active': sc.selectedTabsValue === 'weather'}"><a ng-click="sc.selectTab('weather')" >Weather</a></li>
+                    <li ng-class="{'active': sc.selectedTabsValue === 'links'}"><a ng-click="sc.selectTab('links')" >Links</a></li>
+                    <li ng-class="{'active': sc.selectedTabsValue === 'aboutus'}"><a ng-click="sc.selectTab('aboutus')"  >About us</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a class="icon-th" href="#/"></a></li>
+                    <li><a class="icon-cog" href="#/settings"></a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div>
+    </nav>
+    <div class="container">
+        <div id="account" ng-if="sc.selectedTabsValue === 'account'">
+            <h2>Account</h2>
+        </div>
+        <div id="modules" ng-if="sc.selectedTabsValue === 'modules'">
+            <h2>Modules</h2>
+            <div class="row">
+                <div class="col-xs-6 col-sm-4 col-md-3">
+                    <div class="thumbnail">
+                        <img src="http://placehold.it/300x300" alt="image 01">
+                        <div class="caption">
+                            <h3>Thumbnail label</h3>
+                            <p>Lorem ipsum dolorem</p>
+                            <p>
+                                <a href="#" class="btn btn-primary" role="button">Install</a>
+                                <a href="#" class="btn btn-default" role="button">Detail</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-4 col-md-3">
+                    <div class="thumbnail">
+                        <img src="http://placehold.it/300x300" alt="image 01">
+                        <div class="caption">
+                            <h3>Thumbnail label</h3>
+                            <p>Lorem ipsum dolorem</p>
+                            <p>
+                                <a href="#" class="btn btn-primary" role="button">Install</a>
+                                <a href="#" class="btn btn-default" role="button">Detail</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-4 col-md-3">
+                    <div class="thumbnail">
+                        <img src="http://placehold.it/300x300" alt="image 01">
+                        <div class="caption">
+                            <h3>Thumbnail label</h3>
+                            <p>Lorem ipsum dolorem</p>
+                            <p>
+                                <a href="#" class="btn btn-primary" role="button">Install</a>
+                                <a href="#" class="btn btn-default" role="button">Detail</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <div class="thumbnail">
+                        <img src="http://placehold.it/300x300" alt="image 01">
+                        <div class="caption">
+                            <h3>Thumbnail label</h3>
+                            <p>Lorem ipsum dolorem</p>
+                            <p>
+                                <a href="#" class="btn btn-primary" role="button">Install</a>
+                                <a href="#" class="btn btn-default" role="button">Detail</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="weather" ng-if="sc.selectedTabsValue === 'weather'">
+            <h2>Weather</h2>
+            <div class="row">
+                <div class="col-lg-12">
+                    <weather-module limit="10"></weather-module>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3">
+                    <h3>Settings</h3>
+                </div>
+                <div class="col-lg-9">
+                    [Auto location]<br/>
+                    [Location city]<br/>
+                    [C / F]<br/>
+                    [Icon / Icon and text / text]
+                </div>
+            </div>
+        </div>
+        <div id="links" ng-if="sc.selectedTabsValue === 'links'" ng-init="sc.topSites()">
+            <h2>Links</h2>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="list-group">
+                        <a href="{{link.url}}" class="list-group-item disabled" ng-repeat="link in sc.MostVisitedURL" ng-bind="link.title"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="aboutus" ng-if="sc.selectedTabsValue === 'aboutus'">
+            <h2>About us</h2>
+            <div class="row">
+                <div class="col-lg-3">
+                    <h4>Created by:</h4>
+                </div>
+                <div class="col-lg-9">
+                    <h4>David Breuer</h4>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-3">
+                    <h4>Change log:</h4>
+                </div>
+                <div class="col-lg-9">
+                    <h4>Smile Morning has been updated!</h4>
+                    <h5>Version 1.0</h5>
+                    <ul class="list-group">
+                        <li class="list-group-item disabled">Added settings options</li>
+                        <li class="list-group-item disabled">Added weather iconsets</li>
+                    </ul>
+                    <p>
+                        <span class="label label-info">NOTE</span> This version introduces custom fields for generating random data.
+                        Settings from previous versions cannot be migrated and will need to be set again.
+                    </p>
+                    <hr/>
+                </div>
+            </div>
+        </div>
+        <div id="debugger" ng-if="sc.selectedTabsValue === 'debugger'">
+            <h2>Debugger</h2>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,74 @@
+<ul id="background">
+    <li style="background-image: url({{sc.backgroundImage}}); opacity:1;"></li>
+</ul>
+<div class="widgets fadein fadein-slow" ng-enter="sc.submitData()">
+    <div id="full" ng-if="!sc.dataModel.name">
+        <div ng-include src="sc.template" include-replace></div>
+    </div>
+    <div id="top-left"></div>
+    <div id="top-right">
+
+    </div>
+    <div id="center-above"></div>
+    <div id="center" ng-if="sc.dataModel.name">
+        <div ng-include src="sc.template" include-replace></div>
+    </div>
+    <div id="center-below">
+
+    </div>
+    <div id="bottom">
+        <ul class="nav nav-pills nav-justified">
+            <li class="" ng-repeat="item in sc.MostVisitedURL">
+                <a ng-href="{{item.url}}" target="_self" >
+                    #{{$index}} <span ng-bind="item.title | limitTo: 18"></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div id="bottom-right">
+
+    </div>
+    <div id="bottom-left"></div>
+</div>
+
+<div id="actionbar">
+    <ul class="list-inline">
+        <li><a class="icon-th" href="#/"></a></li>
+        <li><a class="icon-cog" href="#/settings"></a></li>
+    </ul>
+</div>
+
+
+<script type="text/ng-template" id="/welcome.html">
+    <form id="introduction" name="form" class="introduction light" style="opacity: 1;">
+        <p class="logo"><img src="img/logo-white.png"></p>
+
+        <p class="content">
+                    <span style="opacity: 1; display: inline;">
+                        <div class="prompt">
+                            <div class="" ng-switch on="sc.dataModel.step">
+                            <span ng-switch-when='0' id="datetime">
+                                <h1 class="big" ng-click="sc.timeformatChange()">{{ date.raw | date: sc.timeformat }}</h1>
+                                <h2 ng-click="sc.dateformatChange()">{{ date.raw | date: sc.dateformat }}</h2>
+                                <weather-module limit="4"></weather-module>
+                            </span>
+
+                                <span ng-switch-when='1'>What is your name?</span>
+                                <input id="introduction-name" ng-switch-when='1' name="userName" ng-model="sc.dataModel.name" type="text" ng-minlength="3" ng-maxlength="10" required>
+                                <span ng-switch-when='2'>What is your email?</span>
+                                <input id="introduction-email" ng-switch-when='2' name="emailAddress" ng-model="sc.dataModel.email" type="email" required>
+                                <span ng-switch-when='3'>What is your pass?</span>
+                                <input id="introduction-pass" ng-switch-when='3' name="newPassword" ng-model="sc.dataModel.pass" type="password" required>
+                            </div>
+                            <div class="tip"></div>
+                            <div ng-show="form.$submitted || form.emailAddress.$touched">
+                                <span ng-show="form.emailAddress.$error.required">Tell us your email.</span>
+                                <span ng-show="form.emailAddress.$error.email">This is not a valid email.</span>
+                            </div>
+                        </div>
+                        <div class="buttons"></div>
+
+                    </span>
+        </p>
+    </form>
+</script>

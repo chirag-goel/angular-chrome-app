@@ -1,0 +1,29 @@
+{
+    "messages": [
+        {
+            "version": "0.19",
+            "title": "Momentum Updated ☺",
+            "message": "Double click your name, location, or time format to edit."
+        },
+        {
+            "version": "0.34",
+            "title": "Momentum Updated",
+            "message": "Show and hide widgets from Customize in <i class='icon-cog'></i> menu.<br>You can now search in Momentum by clicking <i class='icon-search'></i> in the top left."
+        },
+        {
+            "version": "0.35",
+            "title": "Momentum Updated",
+            "message": "Add your favourite links to the new Links widget in the top left."
+        },
+        {
+            "version": "0.36",
+            "title": "Momentum Updated",
+            "message": "Add your favourite links to the new Links widget in the top left."
+        },
+        {
+            "version": "0.37",
+            "title": "Momentum Updated",
+            "message": "Add your favourite links to the new Links widget in the top left."
+        },
+    ]
+}

@@ -1,0 +1,14 @@
+<div id="forecast" ng-controller="weatherController as we">
+    <ul class="row list-unstyled">
+        <li ng-repeat="day in we.weather.forecast.forecastday | limitTo: limit" class="col-md-3"
+            ng-class="{'col-md-1': limit == 10 }">
+            <div ng-class="{today: $index == 0}" class="weather">
+                <i class="wi wi-wu-{{day.icon}}"></i>
+
+                <h3>{{ day.high.celsius }} &#8451;</h3>
+                <h4 ng-if="$index == 0">Now</h4>
+                <h4 ng-if="$index != 0">{{ day.date.weekday }}</h4>
+            </div>
+        </li>
+    </ul>
+</div>
