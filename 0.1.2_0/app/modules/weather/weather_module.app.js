@@ -9,12 +9,13 @@ function Weather() {
         if (key) this.apiKey = key;
     };
     this.getUrl = function (type, ext) {
-        return "http://api.wunderground.com/api/" +
-        this.apiKey + "/" + type + "/q/" +
-        ext + '.json';
+        return "app/modules/weather/London.json";
+        //return "http://api.wunderground.com/api/" +
+        //this.apiKey + "/" + type + "/q/" +
+        //ext + '.json';
     };
 
-    this.$get = function ($q, $http) {
+    this.$get = function ($q, $http, $timeout) {
         var self = this;
         return {
             getWeatherForecast: function (city) {

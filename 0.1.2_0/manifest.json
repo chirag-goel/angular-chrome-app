@@ -21,6 +21,7 @@
        "history",
        "topSites",
        "unlimitedStorage",
+       "bookmarks",
        "http://api.wunderground.com/api/",
        "http://autocomplete.wunderground.com/api"
    ],

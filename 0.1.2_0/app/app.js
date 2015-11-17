@@ -177,8 +177,11 @@
     angular.module('smile', [
         'ngRoute',
         'ngAnimate',
+        'angular-cache',
         'geolocation',
-        'smile.weather'
+        'smile.weather',
+        'smile.bookmark'
+
     ])
         .config(config)
         .controller('smileCtrl', smileCtrl)

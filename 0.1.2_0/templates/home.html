@@ -50,7 +50,7 @@
                             <span ng-switch-when='0' id="datetime">
                                 <h1 class="big" ng-click="sc.timeformatChange()">{{ date.raw | date: sc.timeformat }}</h1>
                                 <h2 ng-click="sc.dateformatChange()">{{ date.raw | date: sc.dateformat }}</h2>
-                                <weather-module limit="4"></weather-module>
+                                <bookmark-search-module limit="10"></bookmark-search-module>
                             </span>
 
                                 <span ng-switch-when='1'>What is your name?</span>
